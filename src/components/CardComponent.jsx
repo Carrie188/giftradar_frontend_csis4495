@@ -9,7 +9,8 @@ const CardComponent = () => {
             <img src={giftImage} className="card-img-top" alt="..."/>
                 <div className="card-body">
                     <h5 className="card-title">Gift title</h5>
-                    <p className="card-text">This is a description.</p>
+                    <p className="card-text">Price: 22.0 $</p>
+                    <p className="card-text">This is a gift description.</p>
                 </div>
             </div>
     </div>

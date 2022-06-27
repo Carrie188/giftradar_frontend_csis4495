@@ -1,6 +1,16 @@
+import { useEffect } from "react";
 import React from 'react'
 
-const FriendsList = () => {
+const FriendsList = ({friends, handleDelete}) => {
+
+
+
+    useEffect(() => {
+      console.log(friends);
+
+    }, [])
+    
+
   return (
     <div>
         <table className="table table-striped">
@@ -14,15 +24,17 @@ const FriendsList = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Friend No.</td>
-                    <td>Friend Name</td>
-                    <td>Age</td>
-                    <td>Gender</td>
-                    <td>
-                        <button>remove</button>
-                    </td>
-                </tr>
+                {friends.map((friend, key)=>
+                    (<tr key={key}>
+                        <td>{friend.id}</td>
+                        <td>{friend.name}</td>
+                        <td>{friend.age}</td>
+                        <td>{friend.gender}</td>
+                        <td>
+                            <button type="button" onClick={()=>handleDelete(friend.id)}>remove</button>
+                        </td>
+                    </tr>)
+                )}
             </tbody>
         </table>
 
