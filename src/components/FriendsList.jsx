@@ -24,7 +24,7 @@ const FriendsList = ({friends, handleDelete}) => {
                 </tr>
             </thead>
             <tbody>
-                {friends.map((friend, key)=>
+                {friends?.map((friend, key)=>
                     (<tr key={key}>
                         <td>{friend.id}</td>
                         <td>{friend.name}</td>

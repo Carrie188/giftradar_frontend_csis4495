@@ -8,7 +8,7 @@ import { Switch, Route, Link } from "react-router-dom";
 // import AuthVerify from "./common/auth-verify";
 import AuthService from './services/AuthService';
 function App() {
-  const logout = ()=>{AuthService.logout()};
+  // const logout = ()=>{AuthService.logout()};
   return (
     <div className="App">
         <div className="container mt-3">

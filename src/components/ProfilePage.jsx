@@ -10,12 +10,12 @@ const ProfilePage = () => {
     const [currentUser, setCurrentUser] = useState({});
     const [friends, setFriends] = useState([
         {
-            id:"22",
+            id:54,
             name:"cade",
             gender:"male",
             age:22
         },{
-            id:"24",
+            id:53,
             name:"fff",
             gender:"female",
             age:33
@@ -26,8 +26,15 @@ const ProfilePage = () => {
     const getFriendsList = ()=>{
         const userId = localStorage.getItem('userId');
         UserService.getUserInfo(userId).then((res)=>{
-            setTestList(res.data.friends);
-            console.log("array: "+res.data.friends)
+            
+            if(res.data.exists){
+                const fData =res.data.friends
+                console.log(fData)
+                fData.map((f)=>{
+                    setTestList([...testList, f])
+                })
+            }
+            
         });
         // setTestList(data.friends);
         
@@ -64,7 +71,7 @@ const ProfilePage = () => {
             <div className="form-style-5">
             <label>
             <h3>
-            Welcome back!  <strong>{currentUser.username}</strong> 
+             <strong>Welcome back! </strong> 
             </h3>
             </label>
             <p>
