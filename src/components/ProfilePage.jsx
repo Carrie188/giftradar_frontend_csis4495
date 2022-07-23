@@ -21,21 +21,17 @@ const ProfilePage = () => {
             age:33
         }
     ]);
-    const [testList, setTestList] = useState({})
+    const [testList, setTestList] = useState([])
 
     const getFriendsList = ()=>{
         const userId = localStorage.getItem('userId');
-        UserService.getUserInfo(userId).then((res)=>{
-            
-            if(res.data.exists){
-                const fData =res.data.friends
-                console.log(fData)
-                fData.map((f)=>{
-                    setTestList([...testList, f])
-                })
-            }
-            
-        });
+        if(userId != null){
+            UserService.getUserInfo(userId).then((res)=>{
+            const fData = res.data.friends
+            setTestList(fData,[])         
+            });
+        }
+        
         // setTestList(data.friends);
         
         console.log("the first "+JSON.stringify(testList[0]));

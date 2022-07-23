@@ -1,16 +1,25 @@
-import React from 'react'
-import giftImage from '../common/image.jpeg'
+import React, {useEffect} from 'react'
+import RatingStars from './RatingStars'
 
-const CardComponent = () => {
+
+
+
+const CardComponent = ({product,handleClick}) => {
     
+ useEffect(() => {
+  console.log(product.ASIN)
+ }, [])
+
+
+
   return (
-    <div className="col">
+    <div className="col" >
             <div className="card">
-            <img src={giftImage} className="card-img-top" alt="..."/>
+            <img src={product.Image} className="card-img-top" alt="..."/>
                 <div className="card-body">
-                    <h5 className="card-title">Gift title</h5>
-                    <p className="card-text">Price: 22.0 $</p>
-                    <p className="card-text">This is a gift description.</p>
+                    <h5 className="card-title text" onClick={()=>handleClick()}>{product.Title}</h5>
+                    <p className="card-text"><span className='price'>Price: </span>{product.Price}</p>
+                    <p className="card-text "><RatingStars ratingData={product.Ratings}/></p>
                 </div>
             </div>
     </div>

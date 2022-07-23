@@ -182,3 +182,21 @@
 
   gap: 5px 10px;
 }
+
+/* card component */
+.text{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2; /* number of lines to show */
+	-webkit-box-orient: vertical;
+}
+
+/* stars */
+.rating {
+	color: orange;
+  }
+
+.price {
+color: #109177;
+}

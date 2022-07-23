@@ -1,4 +1,5 @@
-import axios from 'axios';
+import http from './Server';
+import axios from "axios";
 import authHeader from './AuthHeader';
 
 const API_URL = 'http://localhost:8080/api/user/';
@@ -11,7 +12,7 @@ class UserService {
     }
 
     getUserFriendsList(userId) {
-        axios.get(API_URL + `${userId}`).then((response)=>{
+        http.get(API_URL + `${userId}`).then((response)=>{
             return response.data.friends;
         }).catch((err)=>{
             console.log(err)
